@@ -8,12 +8,16 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes"); //routes path
 const errorHandler = require("./middlewares/errorMiddleware");
 import path from 'path';
-
+import { fileURLToPath } from 'url';
 //dotenv
 dotenv.config();
 
 //mongo connection
 connectDB();
+
+//esmodule fix
+const __filename = fileURLToPath(import.meta.url);
+cont __dirname = path.dirname(__filename);
 
 //rest object 
 const app = express();
